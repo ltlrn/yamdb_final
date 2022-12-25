@@ -1,5 +1,8 @@
-name: Django-app workflow
-on: [push]
+name: api_yamdb workflow
+on: 
+  push:
+    branches:
+      - 'main'
 jobs:
 
   tests:
@@ -20,6 +23,7 @@ jobs:
       - name: Test with flake8 and Django tests
         run: |
           python -m flake8
+          python -m pytest
           
   build_and_push_to_docker_hub:
   
@@ -39,7 +43,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           
-      - name: Push to Docker Hub
+      - name: Build and push to Docker Hub
         uses: docker/build-push-action@v2
         with:
           push: true
