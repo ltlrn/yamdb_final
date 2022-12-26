@@ -2,7 +2,6 @@ from datetime import date
 
 from django.db.models import Avg
 from rest_framework import serializers
-
 from reviews.models import Category, Comments, Genre, Review, Title
 
 
