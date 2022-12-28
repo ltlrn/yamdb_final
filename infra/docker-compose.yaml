@@ -9,9 +9,6 @@ services:
       - ./.env
   web:
     image: ignazigelherz/api_yamdb:latest
-    # build:
-    #  context: ../
-    #  dockerfile: api_yamdb/Dockerfile
     restart: always
     volumes:
       - static_value:/static/
